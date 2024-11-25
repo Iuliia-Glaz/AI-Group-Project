@@ -1,1 +1,1 @@
-i hate programming
+Student- first project - ahhhhhhhhhh
