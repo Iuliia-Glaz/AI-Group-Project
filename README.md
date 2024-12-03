@@ -20,8 +20,8 @@ We began with data loading from the provided alien galaxy dataset. Missing value
 Dimensionality reduction was applied through Principal Component Analysis (PCA), allowing the high-dimensional dataset to be visualized and analyzed in reduced dimensions. Subsequently, clustering algorithms, including K-Means, Hierarchical Clustering, and DBSCAN, were applied to group similar data points. Each algorithm underwent hyperparameter tuning to optimize clustering performance based on metrics such as silhouette scores, Davies-Bouldin Index, and Calinski-Harabasz Index.
 
 ### Flowchart
-
-![alien_galaxy_flowchart](https://github.com/user-attachments/assets/b51187ab-7633-4a3b-863c-2e4a7601a539)
+The methodology is illustrated below:
+![alien_galaxy_flowchart](https://github.com/user-attachments/assets/7aa1d192-3cf6-468d-85cc-e8d182c1f956)
 
 ---
 
@@ -45,18 +45,38 @@ Dimensionality reduction was applied through Principal Component Analysis (PCA),
 ## Results
 
 ### Main Findings:
-- **K-Means with Random Initialization**: Optimal for 4 clusters based on silhouette scores and visual analysis.  
-![K-means with init=random](https://github.com/user-attachments/assets/0eb8da02-fdef-41ce-87fc-16fad1f1f150)
+1. **Hierarchical Clustering (4 clusters, average linkage)**:
+   - **Silhouette Score**: **0.371533** (highest among all methods).  
+   - **Performance**: Best cluster cohesion and separation, making it the most effective for this dataset.  
+   - **Implication**: Recommended as the **optimal clustering method** for this dataset.
+     
+![Hierachical Clustering(2)](https://github.com/user-attachments/assets/1d1e4d17-aae0-46a7-8c27-ca73478dfde8)
 
-- **Hierarchical Clustering**: Produced comparable results but showed challenges in creating distinct clusters.  
- ![Hierachical Clustering(2)](https://github.com/user-attachments/assets/994beedf-45db-4b9e-b260-f5f86d287d18)
+2. **KMeans with Random Initialization (4 clusters)**:
+   - **Silhouette Score**: **0.368010** (slightly lower than hierarchical clustering).  
+   - **Performance**: Competitive results with strong inter-cluster separation.  
+   - **Implication**: A solid choice, especially for computational efficiency.
+   - 
+![K-means with init=random](https://github.com/user-attachments/assets/a9699f2b-cb94-4b27-9e05-78226edc0f00)
 
-- **DBSCAN**: Showed suboptimal performance due to low silhouette scores and difficulty handling the dataset's distribution.  
-![DB scan with default parameters](https://github.com/user-attachments/assets/06a1b419-6056-4c8f-be31-fe7e70505131)
+3. **KMeans with k-means++ Initialization (4 clusters)**:
+   - **Silhouette Score**: **0.339729**.  
+   - **Performance**: Underperforms compared to random initialization but still viable.
+
+4. **Hierarchical Clustering (4 clusters, ward linkage)**:
+   - **Silhouette Score**: **0.324577**.  
+   - **Performance**: Reasonable but outperformed by average linkage.
+
+5. **DBSCAN (default parameters)**:
+   - **Silhouette Score**: **-0.14**.  
+   - **Performance**: Fails to identify meaningful clusters due to its density-based assumptions.  
+   - **Implication**: **Not suitable** for this dataset.
+
+  ![DB scan with default parameters](https://github.com/user-attachments/assets/25caea51-3e65-4d50-98be-b7a2bfc63d77)
 
 ### Correlation Heatmap:
 To visualize the relationships between variables, a filtered correlation heatmap was created:
-![Filtered Coorelation Heatmap](https://github.com/user-attachments/assets/c06c77b7-b1d4-428a-b30e-a0d8ebfb1c75)
+![Filtered Coorelation Heatmap](https://github.com/user-attachments/assets/6206ec30-d2be-4c09-b2c8-ad5826db3d75)
 
 ### Performance Metrics Table:
 | Clustering Algorithm                    | Silhouette Score | Davies-Bouldin Index | Calinski-Harabasz Index |
@@ -75,7 +95,7 @@ To visualize the relationships between variables, a filtered correlation heatmap
 ## Conclusions
 
 ### Summary:
-The project successfully identified that K-Means with random initialization provides the best clustering for the dataset with 4 clusters. Dimensionality reduction and preprocessing steps significantly improved clustering results.
+The project successfully identified that **Hierarchical Clustering (4 clusters, average linkage)** provides the best clustering for the dataset, offering superior cluster cohesion and separation. **KMeans with random initialization (4 clusters)** is a strong alternative, particularly when computational efficiency is prioritized. 
 
 ### Future Work:
 - Explore advanced clustering algorithms like Gaussian Mixture Models.  
