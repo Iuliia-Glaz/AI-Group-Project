@@ -1,5 +1,5 @@
 
-Alien Galaxy Project
+##Alien Galaxy Project
 Team Members:
 Artem Shelygin - 304291
 Keza Kayihura Herta - 296721
@@ -7,13 +7,13 @@ Iuliia Glazkova - 305031
 Introduction
 This project uses machine learning techniques to analyze and cluster data from an alien galaxy dataset. The focus is on cleaning, preprocessing, and applying dimensionality reduction and clustering algorithms to uncover patterns within the data. The final goal is to identify the optimal clustering algorithm and configuration for the dataset.
 .
-Methods
+##Methods
 We began with data loading from the provided alien galaxy dataset. Missing values are identified and handled through imputation techniques, specifically using the K-Nearest Neighbors (KNN) algorithm to ensure the integrity of the dataset. Outliers are detected and removed using the Z-score method, with a threshold of 6 to balance the retention of valid data points against the exclusion of anomalies. Following this, feature engineering is performed to extract meaningful insights by analyzing feature correlations and filtering redundant or non-informative variables.
 Dimensionality reduction is applied through Principal Component Analysis (PCA), allowing the high-dimensional dataset to be visualized and analyzed in reduced dimensions. Subsequently, clustering algorithms including K-Means, Hierarchical Clustering, and DBSCAN are applied to group similar data points. Each algorithm undergoes hyperparameter tuning to optimize clustering performance based on metrics such as silhouette scores, Davies-Bouldin Index, and Calinski-Harabasz Index.
 
 
 
- Experimental Design
+##Experimental Design
 Experiments Conducted:
 Purpose: To identify the best clustering algorithm and hyperparameters for the dataset.
 Baselines: Default configurations of K-Means, Hierarchical, and DBSCAN clustering.
@@ -26,7 +26,7 @@ Hyperparameter optimization for K-Means (clusters, init).
 Linkage methods comparison for Hierarchical Clustering.
 Epsilon and minimum samples grid search for DBSCAN.
 
-Results
+##Results
 Main Findings:
 K-Means with Random Initialization: Optimal for 4 clusters based on silhouette scores and visual analysis.
 Hierarchical Clustering: Produced comparable results but showed challenges in creating distinct clusters.
@@ -57,7 +57,7 @@ K-Means (5 clusters, init=random)
 1.10
 2100
 
-Conclusions
+##Conclusions
 Summary:
 The project successfully identified that K-Means with random initialization provides the best clustering for the dataset with 4 clusters. Dimensionality reduction and preprocessing steps significantly improved clustering results.
 Future Work:
