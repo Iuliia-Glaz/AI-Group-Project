@@ -1,4 +1,4 @@
-![Hierachical Clustering(2)](https://github.com/user-attachments/assets/ef473893-d171-4099-acaa-63d26906a445)
+
 # Alien Galaxy Project
 
 ## Team Members:
