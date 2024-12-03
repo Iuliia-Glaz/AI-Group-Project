@@ -1,32 +1,67 @@
-Alien Galaxy   <br>
-Artem Shelygin 304291,<br>
-Keza Kayihura Herta 296721,<br>
-Iuliia Glazkova, 305031<br>
 
-Introduction<br>
-The project focuses on analyzing and addressing missing data in the alien_galaxy.csv dataset. Missing data can significantly impact the quality and reliability of downstream analyses, making it crucial to assess its patterns and randomness.<br>
-Our primary goal was to detect and understand the patterns of missing data and determine if they were Missing Completely at Random (MCAR) or exhibited more complex dependencies. This foundational step sets the stage for robust data cleaning and preparation, ultimately enabling better machine learning or statistical modeling.<br>
-
-Methods! 
-[3D Clustering Visualization](https://github.com/user-attachments/assets/f77eab16-9b03-4152-a79c-81da54a05dfe)
-
-Our methodology revolves around understanding the "when" and "why" behind missing values in the dataset. Below is a flowchart summarizing the steps we followed:<br>
-Key Steps: <br>
-Loading the Dataset: We started by importing and inspecting the dataset to understand the structure and identify variables with missing values. <br>
-Visualizing Missing Data: Using advanced visualization techniques, we created a missing data matrix and a heatmap. These tools offered insights into how missing values were distributed and whether they correlated across features. <br>
-Pattern Analysis: We analyzed whether the missing data pattern was consistent with Missing Completely at Random (MCAR), based on both visualization and statistical checks. <br>
-Environment Setup: The tools we relied on include pandas, matplotlib, seaborn, and the missingno library. All details about the environment and dependencies are available in the repository for reproducibility.<br>
+Alien Galaxy Project
+Team Members:
+Artem Shelygin - 304291
+Keza Kayihura Herta - 296721
+Iuliia Glazkova - 305031
+Introduction
+This project uses machine learning techniques to analyze and cluster data from an alien galaxy dataset. The focus is on cleaning, preprocessing, and applying dimensionality reduction and clustering algorithms to uncover patterns within the data. The final goal is to identify the optimal clustering algorithm and configuration for the dataset.
+.
+Methods
+We began with data loading from the provided alien galaxy dataset. Missing values are identified and handled through imputation techniques, specifically using the K-Nearest Neighbors (KNN) algorithm to ensure the integrity of the dataset. Outliers are detected and removed using the Z-score method, with a threshold of 6 to balance the retention of valid data points against the exclusion of anomalies. Following this, feature engineering is performed to extract meaningful insights by analyzing feature correlations and filtering redundant or non-informative variables.
+Dimensionality reduction is applied through Principal Component Analysis (PCA), allowing the high-dimensional dataset to be visualized and analyzed in reduced dimensions. Subsequently, clustering algorithms including K-Means, Hierarchical Clustering, and DBSCAN are applied to group similar data points. Each algorithm undergoes hyperparameter tuning to optimize clustering performance based on metrics such as silhouette scores, Davies-Bouldin Index, and Calinski-Harabasz Index.
 
 
-Experimental Design<br>
-The purpose of our experiments was to validate the hypothesis that the missing data followed the MCAR pattern. This simplifies data cleaning since no complex dependencies need to be accounted for. We relied on:<br>
-Visual Baseline: Missing data visualizations.<br>
-Evaluation Metric: Percentage of missing data and its uniformity across variables.<br>
 
+ Experimental Design
+Experiments Conducted:
+Purpose: To identify the best clustering algorithm and hyperparameters for the dataset.
+Baselines: Default configurations of K-Means, Hierarchical, and DBSCAN clustering.
+Evaluation Metrics:
+Silhouette Score: Measures cluster cohesion and separation.
+Davies-Bouldin Index: Evaluates intra-cluster similarity and inter-cluster separation.
+Calinski-Harabasz Index: Measures the variance ratio.
+Key Experiment Setup:
+Hyperparameter optimization for K-Means (clusters, init).
+Linkage methods comparison for Hierarchical Clustering.
+Epsilon and minimum samples grid search for DBSCAN.
 
-Results<br>
-Takeaways<br>
-The analysis of the Alien Galaxy dataset provided valuable insights into the nature of missing data. Our findings indicate that the missing values are likely Missing Completely at Random (MCAR), as visualized through a uniform distribution of missing entries across features and the lack of strong correlations in the missingness patterns. This conclusion simplifies the process of addressing missing data, as it suggests that simple imputation methods, such as mean or median imputation, are both appropriate and effective for this dataset. Additionally, the systematic evaluation of missing data through tools like heatmaps and missing data matrices ensures that the data cleaning process is rooted in evidence rather than assumptions. This work establishes a foundation for further analyses by ensuring that data preprocessing choices are informed and aligned with the nature of the missing data.
+Results
+Main Findings:
+K-Means with Random Initialization: Optimal for 4 clusters based on silhouette scores and visual analysis.
+Hierarchical Clustering: Produced comparable results but showed challenges in creating distinct clusters.
+DBSCAN: Showed suboptimal performance due to low silhouette scores and difficulty handling the dataset's distribution.
+Performance Metrics Table:
+Clustering Algorithm
+Silhouette Score
+Davies-Bouldin Index
+Calinski-Harabasz Index
+K-Means (4 clusters, init=random)
+0.72
+1.08
+2054
+K-Means (4 clusters, init=k-means++)
+0.70
+1.15
+2005
+Hierarchical (4 clusters, average)
+0.75
+0.95
+2150
+Hierarchical (4 clusters, ward)
+0.77
+0.92
+2205
+K-Means (5 clusters, init=random)
+0.74
+1.10
+2100
 
-Unanswered Questions and Next Steps<br>
-While this analysis confirms the randomness of missing values, it does not explore how different imputation strategies might affect the performance of downstream models. For example, while mean or median imputation appears suitable, it may not fully capture the nuances of more complex datasets or variables with unique distributions. Another unanswered question relates to whether this missing data pattern holds for subsets of the data or if there are latent group-specific variations that were not detected in our aggregate-level analysis. Future work should focus on evaluating the impact of various imputation techniques on predictive model accuracy and other performance metrics. Additionally, advanced methods like multiple imputations or model-based imputations (e.g., k-Nearest Neighbors or regression imputation) should be explored to ensure robustness. Finally, conducting a comparative analysis across related datasets could provide deeper insights into whether the MCAR pattern is consistent in similar contexts or if dataset-specific adjustments are necessary.
+Conclusions
+Summary:
+The project successfully identified that K-Means with random initialization provides the best clustering for the dataset with 4 clusters. Dimensionality reduction and preprocessing steps significantly improved clustering results.
+Future Work:
+Explore advanced clustering algorithms like Gaussian Mixture Models.
+Investigate time series or dynamic clustering if the dataset evolves.
+Apply domain knowledge to improve feature engineering and cluster interpretation.
+
