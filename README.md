@@ -20,7 +20,8 @@ We began with data loading from the provided alien galaxy dataset. Missing value
 Dimensionality reduction was applied through Principal Component Analysis (PCA), allowing the high-dimensional dataset to be visualized and analyzed in reduced dimensions. Subsequently, clustering algorithms, including K-Means, Hierarchical Clustering, and DBSCAN, were applied to group similar data points. Each algorithm underwent hyperparameter tuning to optimize clustering performance based on metrics such as silhouette scores, Davies-Bouldin Index, and Calinski-Harabasz Index.
 
 ### Flowchart
-![Flowchart](alien_galaxy_flowchart.png)
+
+![alien_galaxy_flowchart](https://github.com/user-attachments/assets/d30ed5a7-50eb-45ad-baf6-b3fa33f4d9b6)
 
 ---
 
