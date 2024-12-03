@@ -7,7 +7,8 @@ Introduction
 The project focuses on analyzing and addressing missing data in the alien_galaxy.csv dataset. Missing data can significantly impact the quality and reliability of downstream analyses, making it crucial to assess its patterns and randomness.
 Our primary goal was to detect and understand the patterns of missing data and determine if they were Missing Completely at Random (MCAR) or exhibited more complex dependencies. This foundational step sets the stage for robust data cleaning and preparation, ultimately enabling better machine learning or statistical modeling.
 
-Methods
+Methods![3D Clustering Visualization](https://github.com/user-attachments/assets/f77eab16-9b03-4152-a79c-81da54a05dfe)
+
 Our methodology revolves around understanding the "when" and "why" behind missing values in the dataset. Below is a flowchart summarizing the steps we followed:
 Key Steps:
 Loading the Dataset: We started by importing and inspecting the dataset to understand the structure and identify variables with missing values.
